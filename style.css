@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/*html, body, section {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}*/
+header{
+    height: 5vh;
+    width:100vw;
+    background-color: #2C2A28;
+    display: flex;
+    align-items: center;
+}
+header h1{
+    padding-left: 20px;
+    font-weight: lighter;
+    color: white;
+}
+button{
+    background-color: #4285F4;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+}
+input{
+    font-size: 16px;
+}
+#map{
+    height: 95vh;
+    width: 40vw;
+    /*border: 1px solid red;*/
+    position: absolute;
+    left: 0;
+}
+
+.section-data{
+    height:95vh;
+    width: 60vw;
+    position: absolute;
+    right: 0;
+}
+.input-section{
+    /*border: 1px solid green;*/
+    height: 20%;
+    background-color: #F2F2F2;
+    padding: 20px;
+    box-shadow: 10px 10px 10px;
+}
+.input-section p {
+    display: inline;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+.location-data{
+    height: 80%;
+    display: grid;
+    grid-template-columns: 20% 40% 40%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.location-data > div{
+    position: relative;
+    top: 30px;
+}
+
+div > h2{
+    position: fixed;
+    width: 100%;
+    top: 5%;
+    background: #F2F2F2;
+    padding-left: 9px;
+    z-index: 2;
+}
+.lat-item > p{
+    display: inline;
+}
+.long-item > p{
+    display: inline;
+}
+.mile-marker > {
+    display: inline;
+}
+.mile-item{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid #F2F2F2;
+}
+.lat-item{
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid #F2F2F2;
+}
+.long-item{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid #F2F2F2;
+}
+
+.location-data span{
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    right: 40px;
+    background-color: #4285F4;
+    border-radius: 3px;
+    padding: 5px;
+    border: 1px solid #F2F2F2;
+    font-weight: lighter;
+}
+
+span:hover{
+    text-decoration: underline;
+}
+
+#delete-btn{
+    position: absolute;
+    right: 10px;
+    background-color: red;
+}
+
+/*input show and hide stylings*/
+.location-data input{
+    display: none;
+}
+.location-data button{
+    display: none;
+}
+
+#show{
+    display: inline;
+}

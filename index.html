@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+    <head>
+        <title>PCT Trail</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body ng-controller="mainCtrl">
+    <header>
+        <h1>TRAIL TRACKER</h1>
+    </header>
+    <section>
+        <!--where the map goes-->
+        <div id="map">
+        </div>
+        <!--right hand side of the map-->
+        <div class="section-data">
+            
+            <div class="location-data">
+                <div class="mile-marker">
+                    <h2>Miles</h2>
+                    <div class="mile-item {{position.mile}}" ng-repeat="position in positions | filter: mile">
+                        <p>{{position.mile}}</p>
+                    </div>
+                </div>
+                <div class="lat">
+                    <h2>Latitude</h2>
+                    <div class="lat-item {{position.mile}}" ng-repeat="position in positions | filter: mile">
+                        <p class="{{position.lat}}">{{position.lat}}</p>
+                        <span ng-click="edit(position.lat)">edit </span>
+                        <input value="{{position.lat}}" ng-model="newPosition" class="{{position.lat}}">
+                        <button ng-click="saveNewPosition(position.mile, newPosition, 'lat', position.lat)" class="{{position.lat}}">Save</button>
+                    </div>
+                </div>
+                <div class="long">
+                    <h2>Longitude</h2>
+                    <div class="long-item {{position.mile}}" ng-repeat="position in positions | filter: mile">
+                        <p class="{{position.lng}}">{{position.lng}}</p>
+                        <span ng-click="edit(position.lng)">edit</span><span ng-click="delete(position.mile)" id="delete-btn">X</span>
+                        <input value="{{position.lng}}" ng-model="newPosition" class="{{position.lng}}">
+                        <button ng-click="saveNewPosition(position.mile, newPosition, 'lng', position.lng, initMap)" class="{{position.lng}}">Save</button>
+                    </div>
+                </div>
+            </div>
+            <div class="input-section">
+                    <label>Latitude:</label>
+                    <input type="text" ng-model="latitude"/>
+                    <label>Longitude:</label>
+                    <input type="text" ng-model="longitude"/>
+                    <button ng-click="addMileMarker(latitude, longitude)">Add New Marker</button>
+                <br>
+                <br>
+                    <label>Latitude:</label>
+                    <input type="text" ng-model="latpoint"/>
+                    <label>Longitude:</label>
+                    <input type="text" ng-model="longpoint"/>
+                    <button ng-click="addMarker(latpoint, longpoint)">Find Point</button><button style="margin-left: 10px; background-color: red;" ng-click="removeMarker()">Remove Marker</button>
+
+                    <br>
+                    <br>
+                    <h3>Nearest Point</h3>
+                    <label>mile-marker:</label><p>{{nearest.mile.mile}}</p><label>distance:</label><p>{{nearest.distance}}</p>
+                <br>
+                    <label>Filter: </label>
+                    <input type="text" placeholder="mile-marker" ng-model="mile.mile"/>
+            </div>
+
+        </div>
+    </section>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjgL-Iv36_5EGBTvzXBe_pbsTLZkiDS1I&callback=initMap"></script>
+    <script src="app.js"></script>
+    <script src="mainCtrl.js"></script>
+    
+    </body>
+</html>
